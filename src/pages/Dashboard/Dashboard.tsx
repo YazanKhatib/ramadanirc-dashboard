@@ -52,6 +52,8 @@ export default (props: any) => {
         switch (section) {
             case "daily-duas":
                 return(<DailyDuas />)
+            case 'notifications':
+                return(<Notifications />)
             default:
                 break;
         }
