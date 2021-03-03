@@ -8,6 +8,7 @@ import { SideNav, TopNav } from '../../components/Nav/Nav'
 import './Dashboard.css'
 import Notifications from '../../containers/Notifications/Notifications'
 import DailyDuas from '../../containers/DailyDuas/DailyDuas'
+import DailyChecklist from '../../containers/DailyChecklist/DailyChecklist'
 
 export default (props: any) => {
 
@@ -52,6 +53,8 @@ export default (props: any) => {
         switch (section) {
             case "daily-duas":
                 return(<DailyDuas />)
+            case "daily-checklist":
+                return(<DailyChecklist />)
             case 'notifications':
                 return(<Notifications />)
             default:

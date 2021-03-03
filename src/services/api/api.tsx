@@ -8,7 +8,7 @@ class API {
     constructor() {
         this.url = "http://157.230.215.132"
 
-        const [cookies, _, removeCookie] = useCookies();
+        const [cookies, setCookie, removeCookie] = useCookies();
 
         // Add Auth header
         axios.interceptors.request.use( (config) => {
@@ -18,6 +18,7 @@ class API {
             config.headers["X-Requested-With"] = "XMLHttpRequest"
             if (cookies.token) {
                 config.headers["accessToken"] = cookies.token?.accessToken;
+                // config.headers["refreshToken"] = cookies.refresh_token?.refreshToken;
             }
             return (config);
 
@@ -28,16 +29,28 @@ class API {
             if(!response)
                 return Promise.reject(response)
             return response
-        }, function (error) {
-            if(!error)
-                return Promise.reject(error);
-            if (403 === error.response?.status && error.response?.data?.message === "refresh Token needed") {
-                // removeCookie("userinfo")
-                // removeCookie("token")
-                alert("HA")
-            } else {
-                return Promise.reject(error);
-            }
+        }, (error) => {
+            
+            // const originalRequest = error.config;
+
+            // if (403 === error.response?.status && error.response?.data?.message === "refresh Token needed" && !originalRequest._retry) {
+
+            //     originalRequest._retry = true;
+
+            //     return axios.post( `${this.url}/dua/add`, {}, { headers: { "refreshToken": cookies.refresh_token?.refreshToken } } )
+            //     .then((response: any) => {
+            //         if(response.data?.accessToken) {
+            //             setCookie("refresh_token", { refreshToken: response.data?.refreshToken })
+            //             setCookie("token", { accessToken: response.data?.accessToken })
+            //             axios.defaults.headers.common['accessToken'] = response.data?.accessToken;
+            //             return axios(originalRequest);
+            //         }
+            //     })
+            // }
+            // return Promise.reject(error);
+
+            alert("HA!")
+
         });
     }
 
@@ -74,6 +87,29 @@ class API {
         endpoints.update = ( query: any, name='dua/update' ) => axios.post( `${this.url}/${name}`, query )
 
         endpoints.delete = ( id: number, name='dua/delete' ) => axios.get( `${this.url}/${name}/${id}` )
+
+        return endpoints
+    }
+    
+    /**
+     * Dialy Checklist APIs
+     * @param {}
+     */
+    checklist(): {
+        index( name?: string ): any;
+        add( query: { name?: string; fixed?: boolean; }, name?: string ): any;
+        update( query: { id?: number; name?: string; fixed?: boolean; }, name?: string ): any;
+        delete( id: number, name?: string ): any;
+    } {
+        var endpoints:any = {}
+
+        endpoints.index = ( name='task' ) => axios.get( `${this.url}/${name}` )
+
+        endpoints.add = ( query: any, name='task/add' ) => axios.post( `${this.url}/${name}`, query )
+        
+        endpoints.update = ( query: any, name='task/update' ) => axios.post( `${this.url}/${name}`, query )
+
+        endpoints.delete = ( id: number, name='task/delete' ) => axios.get( `${this.url}/${name}/${id}` )
 
         return endpoints
     }

@@ -35,7 +35,7 @@
 .dashboard-table table tbody tr td .show-on-hover i.icon-delete { color: #FF6B6B; }
 
 .dashboard-table table tbody tr td .icon-star-o,
-.dashboard-table table tbody tr td .icon-star-2 { font-size: 17px; margin-left: 17px; display: inline-block; color: #75AECC; transition: all .3s ease; }
+.dashboard-table table tbody tr td .icon-star-2 { font-size: 17px; margin-left: 7px; display: inline-block; color: #75AECC; transition: all .3s ease; }
 .dashboard-table table tbody tr td .icon-star-o:hover,
 .dashboard-table table tbody tr td .icon-star-2:hover { transform: scale(1.3); }
 

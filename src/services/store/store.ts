@@ -6,6 +6,8 @@ import { predefinedMenusSlice } from '../../components/PredefinedMenus/Predefine
 import { resetPasswordSlice } from "../../containers/ResetPasswordForm/ResetPasswordFormSlice";
 import { duasSlice } from "../../containers/DailyDuas/DailyDuasSlice";
 import { addDuaSlice } from "../../containers/DailyDuas/AddModal/AddDuaSlice";
+import { checklistSlice } from "../../containers/DailyChecklist/DailyChecklistSlice";
+import { addTaskSlice } from "../../containers/DailyChecklist/AddModal/AddTaskSlice";
 
 
 const reducer = {
@@ -13,7 +15,9 @@ const reducer = {
     reset_password: resetPasswordSlice.reducer,
     predefined_menus: predefinedMenusSlice.reducer,
     duas: duasSlice.reducer,
-    add_dua: addDuaSlice.reducer
+    add_dua: addDuaSlice.reducer,
+    checklist: checklistSlice.reducer,
+    add_task: addTaskSlice.reducer
 }
 
 export default configureStore({

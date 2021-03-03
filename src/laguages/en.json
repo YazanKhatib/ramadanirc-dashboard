@@ -28,6 +28,14 @@
     "dua_english": "Dua - English",
     "add_to_duas": "Add to duas",
     "add_dua": "Add dua",
-    "edit_dua": "Edit dua"
+    "edit_dua": "Edit dua",
+
+    "checklist": "Checklist",
+    "add_to_tasks": "Add to tasks",
+    "name": "Name",
+    "fixed": "Fixed",
+    "add_task": "Add task",
+    "edit_task": "Edit task",
+    "submit": "Submit"
 
 }
