@@ -1,0 +1,33 @@
+{
+    
+    "username": "Username",
+    "email": "Email",
+    "password": "Password",
+    "confirm_password": "Confirm password",
+    "remember_me": "Remember Me",
+    "login": "Login",
+    "required_error": "Please fill in this field",
+    "login_error": "Invalid data. Please check your information.",
+    "reset_success": "Your password has been changed successfully!",
+    "reset_password": "Reset password",
+    "passwords_didnt_match": "Passwords didn't match",
+
+    "users": "Users",
+    "notifications": "Notifications",
+    "daily_duas": "Daily duas",
+    "tidbits": "Tidbits",
+    "daily_checklist": "Daily checklist",
+    "deed_of_the_day": "Deed of the day",
+
+    "notification_text": "Notification text",
+    "send_notification": "Send notification",
+
+    "duas": "Daily Duas",
+    "dua_arabic": "Dua - Arabic",
+    "dua_in_between": "Dua - In between",
+    "dua_english": "Dua - English",
+    "add_to_duas": "Add to duas",
+    "add_dua": "Add dua",
+    "edit_dua": "Edit dua"
+
+}

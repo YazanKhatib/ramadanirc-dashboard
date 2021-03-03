@@ -1,0 +1,37 @@
+/* Main elements */
+body { margin: 0; overflow-x: hidden; }
+body.dark { background: #202835; }
+* { box-sizing: border-box; direction: ltr; font-family: "Raleway"; }
+.rtl * { font-family: "Neo sans arabic"; direction: rtl; }
+img { max-width: 100%; height: auto; }
+
+/* Main classes */
+.text-center { text-align: center; }
+.center { position: absolute; top: 50%; left: 50%; transform: translate( -50%, -50% ); }
+.clear { clear: both; }
+
+/* Colors */
+.color-gold { color: #75AECC; }
+.bg-gold { background-color: #75AECC; }
+.color-white { color: #FFF; }
+.bg-white { background: #FFF; }
+.bg-gray { background: #F9F9F9; }
+
+/* Margin */
+.margin-5 { display: inline-block; margin: 0 2.5px; }
+.margin-10 { display: inline-block; margin: 0 5px; }
+.margin-20 { display: inline-block; margin: 0 10px; }
+.margin-30 { display: inline-block; margin: 0 15px; }
+.margin-40 { display: inline-block; margin: 0 20px; }
+.margin-50 { display: inline-block; margin: 0 25px; }
+
+.margin-top-5 { margin-top: 5px; }
+.margin-top-10 { margin-top: 10px; }
+.margin-top-20 { margin-top: 20px; }
+.margin-top-30 { margin-top: 30px; }
+.margin-top-40 { margin-top: 40px; }
+.margin-top-50 { margin-top: 50px; }
+
+/* Buttons */
+.button { border: none; line-height: 50px; padding: 0 20px; border-radius: 5px; cursor: pointer; text-decoration: none; outline: none; font-size: 14px; font-weight: 600; box-shadow: 1px 3px 3px rgba( 0, 0, 0, .06 ); max-width: 100%; transition: all .3s ease; }
+.button.round { border-radius: 100px; }

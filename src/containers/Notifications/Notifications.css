@@ -1,0 +1,15 @@
+.notifications { text-align: center; opacity: .4; transform: scale(.9); animation: scaleIn .5s ease forwards; }
+.notifications img { max-width: 100%; width: 250px; }
+.dark .notifications textarea { background: #242c38; }
+
+@keyframes scaleIn {
+    0% {
+        opacity: .4;
+    
+        transform: scale(.9);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}

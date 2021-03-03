@@ -1,0 +1,24 @@
+{
+    
+    "username": "Nom d'utilisateur",
+    "password": "Mot de passe",
+    "confirm_password": "Confirmez le mot de passe",
+    "remember_me": "Souviens-toi de moi",
+    "login": "Connexion",
+    "required_error": "Veuillez remplir ce champ",
+    "login_error": "Données invalides. Veuillez vérifier vos informations.",
+    "reset_success": "Votre mot de passe a été changé avec succès!",
+    "reset_password": "Réinitialiser le mot de passe",
+    "passwords_didnt_match": "Les mots de passe ne correspondent pas",
+
+    "users": "Utilisateurs",
+    "notifications": "Notifications",
+    "daily_duas": "Duas quotidiens",
+    "tidbits": "Tidbits",
+    "daily_checklist": "Liste de contrôle quotidienne",
+    "deed_of_the_day": "Acte du jour",
+
+    "notification_text": "Texte de notification",
+    "send_notification": "Envoyer une notification"
+
+}

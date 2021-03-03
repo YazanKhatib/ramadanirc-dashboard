@@ -1,0 +1,245 @@
+*:disabled { cursor: not-allowed!important; }
+.input-box { position: relative; max-width: 500px; margin: 10px auto; }
+.dark .modal .input-box { opacity: .8; }
+
+.input-box label { position: absolute; font-size: 14px; top: 50%; left: 20px; transform: translateY(-50%); color: #999; cursor: pointer; user-select: none; transition: all .3s ease; }
+.rtl .input-box label { right: 20px; left: auto; }
+.input-box textarea + label { transform: translateY(0); top: 25px; }
+.input-box label.active,
+.input-box input:focus + label,
+.input-box textarea:focus + label { font-size: 10px; top: 30%; }
+.input-box textarea:focus + label,
+.input-box textarea + label.active { top: 10px; }
+
+.input-box input,
+.input-box textarea { line-height: 1; width: 100%; border-radius: 10px; border: none; background: #F7F7F7; outline: none; padding: 25px 20px 15px; cursor: pointer; font-size: 14px; transition: all .3s ease; }
+.input-box textarea { line-height: 23px; }
+.input-box input:focus,
+.input-box textarea:focus { background: #F1F1F1; cursor: unset; }
+
+.dark .input-box input,
+.dark .input-box textarea { background: #495568; color: #FFF; }
+.dark .modal .input-box input,
+.dark .modal .input-box textarea { background: #343b49; opacity: .8; }
+.dark .input-box label { color: #828da0 }
+.dark .modal .input-box label { opacity: .6; }
+
+.input-box .icon-error { position: absolute; top: 50%; transform: translateY(-50%); right: 20px; color: tomato; cursor: pointer; }
+.textarea-box .icon-error { top: 20px; transform: translateY(0); }
+.rtl .input-box .icon-error { left: 20px; right: auto; }
+.input-box .icon-error::before { background: #FFF; border-radius: 50%; }
+.input-box .type-error { background: tomato; }
+.input-box .type-error::after { border-left-color: tomato!important; }
+
+.checkbox { position: relative; max-width: 400px; margin: 20px auto; }
+.dark .checkbox { color: #FFF; }
+.checkbox input { display: none; }
+.checkbox i { padding-right: 5px; position: relative; top: 1.8px; cursor: pointer; }
+.rtl .checkbox i { padding-left: 5px; padding-right: 0; }
+.checkbox label { cursor: pointer; user-select: none; }
+.checkbox input ~ div { opacity: .2; display: inline-block; transition: all .3s ease; cursor: pointer; font-size: 14px; }
+.checkbox input:checked ~ div { opacity: 1; animation: scale .4s ease-in-out; }
+.checkbox input:disabled ~ div * { cursor: not-allowed!important; }
+
+@keyframes scale {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.simple-checkbox { display: inline-block; }
+.simple-checkbox input { display: none; }
+.simple-checkbox label { display: inline-block; position: relative; width: 20px; height: 20px; background: #FFF; border: 1px solid #DDD; border-radius: 3px; transition: all .3s ease; }
+.dark .simple-checkbox label { background: #343b49; border-color: #3a4252; }
+.simple-checkbox label i { position: absolute; top: 50%; left: 50%; transform: translate( -50%, -50% ) scale(0); font-size: 9px; margin-top: 1.5px; color: #FFF; transition: transform 500ms cubic-bezier(.26,2,.46,.71); }
+.simple-checkbox input:checked ~ label { background: #75AECC; border-color: #75AECC; }
+.simple-checkbox input:checked ~ label i { transform: translate( -50%, -50% ) scale(1.1); }
+
+
+/* Light/Dark Switcher */
+.toggle-checkbox {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+  
+  .toggle-slot {
+    position: relative;
+    height: 2em;
+    width: 4em;
+    border: 1px solid #e4e7ec;
+    border-radius: 2em;
+    background-color: white;
+    box-shadow: 0px 2px 3px #e4e7ec;
+    transition: background-color 250ms;
+  }
+  .dark .toggle-slot { box-shadow: 0px 2px 3px #394150; }
+  
+  .toggle-checkbox:checked ~ .toggle-slot {
+    background-color: #374151;
+  }
+  
+  .toggle-button {
+    transform: translate(2.35em, 0.3em);
+    position: absolute;
+    height: 1.3em;
+    width: 1.3em;
+    border-radius: 50%;
+    background-color: #ffeccf;
+    box-shadow: inset 0px 0px 0px 0.15em #ffbb52;
+    transition: background-color 250ms, border-color 250ms, transform 500ms cubic-bezier(.26,2,.46,.71);
+  }
+  
+  .toggle-checkbox:checked ~ .toggle-slot .toggle-button {
+    background-color: #485367;
+    box-shadow: inset 0px 0px 0px 0.15em white;
+    transform: translate(0.35em, 0.3em);
+  }
+  
+  .sun-icon {
+    position: absolute;
+    height: 1.2em;
+    width: 1.2em;
+    color: #ffbb52;
+  }
+  
+  .sun-icon-wrapper {
+    position: absolute;
+    height: 1.2em;
+    width: 1.2em;
+    opacity: 1;
+    transform: translate(0.4em, 0.35em) rotate(15deg);
+    transform-origin: 50% 50%;
+    transition: opacity 150ms, transform 500ms cubic-bezier(.26,2,.46,.71);
+  }
+  
+  .toggle-checkbox:checked ~ .toggle-slot .sun-icon-wrapper {
+    opacity: 0;
+    transform: translate(0.6em, 0.4em) rotate(0deg);
+  }
+  
+  .moon-icon {
+    position: absolute;
+    height: 1.2em;
+    width: 1.2em;
+    color: white;
+  }
+  
+  .moon-icon-wrapper {
+    position: absolute;
+    height: 1.2em;
+    width: 1.2em;
+    opacity: 0;
+    transform: translate(2.2em, 0.35em) rotate(0deg);
+    transform-origin: 50% 50%;
+    transition: opacity 150ms, transform 500ms cubic-bezier(.26,2.5,.46,.71);
+  }
+  
+  .toggle-checkbox:checked ~ .toggle-slot .moon-icon-wrapper {
+    opacity: 1;
+    transform: translate(2.4em, 0.35em) rotate(-15deg);
+  }
+
+  .language-toggle .toggle-button {
+      background: #f8f8f8;
+      box-shadow: inset 0px 0px 0px 0.15em #374151;
+  }
+  .dark .language-toggle .toggle-button {
+    background-color: #485367!important;
+    box-shadow: inset 0px 0px 0px 0.15em white!important;
+  }
+  .language-toggle .toggle-checkbox:checked ~ .toggle-slot .toggle-button {
+    background: #f8f8f8;
+    box-shadow: inset 0px 0px 0px 0.15em #374151;
+    transform: translate(0.35em, 0.3em);
+  }
+  .language-toggle .toggle-checkbox:checked ~ .toggle-slot {
+    background-color: #FFF;
+  }
+  .dark .language-toggle .toggle-slot {
+    background-color: #374151!important;
+  }
+  .language-toggle .en {
+      position: absolute;
+      top: 50%;
+      left: 14px;
+      font-size: 13px;
+      transform: translate(0, -50%);
+      opacity: 1;
+      user-select: none;
+      font-weight: bold;
+      color: #374151;
+      transition: opacity 150ms, transform 500ms cubic-bezier(.26,2.5,.46,.71);
+  }
+  .language-toggle .toggle-checkbox:checked ~ .toggle-slot .en {
+      transform: translate(1em, -50%);
+      opacity: 0;
+  }
+  .language-toggle .fr {
+    position: absolute;
+    top: 50%;
+    right: 15px;
+    font-size: 13px;
+    transform: translate(-1em, -50%);
+    opacity: 0;
+    user-select: none;
+    font-weight: bold;
+    color: #374151;
+    margin-top: 0;
+    transition: opacity 150ms, transform 500ms cubic-bezier(.26,2.5,.46,.71);
+  }
+  .language-toggle .toggle-checkbox:checked ~ .toggle-slot .fr {
+    transform: translate(0, -50%);
+    opacity: 1;
+  }
+  .dark .language-toggle .en,
+  .dark .language-toggle .fr { color: #FFF }
+
+
+/* Select Field */
+form .react-select { margin: 10px 0; text-align: left; }
+.rtl form .react-select { text-align: right; }
+form .react-select .react-select__control { height: 55px; border-radius: 10px; border: none!important; background: #F7F7F7; font-size: 14px; padding: 0 10px; }
+.react-select .react-select__control { border-radius: 3px; cursor: pointer; }
+.react-select .react-select__control,
+.react-select .react-select__control:hover,
+.react-select .react-select__control--is-focused,
+.react-select .react-select__control--menu-is-open  { line-height: 25px; border: 1px solid #EEE; box-shadow: none; }
+.dark .react-select .react-select__control { background: #343b49; opacity: .7; }
+.dark .react-select .react-select__control,
+.dark .react-select .react-select__control:hover,
+.dark .react-select .react-select__control--is-focused,
+.dark .react-select .react-select__control--menu-is-open { border-color: #434b5c; }
+.dark .react-select .react-select__control .react-select__single-value { color: #FFF; }
+.dark .react-select .react-select__control .react-select__indicator { color: #FFF; }
+.dark .react-select .react-select__control:not(.react-select__control--menu-is-open) .react-select__indicator,
+.dark .react-select .react-select__control .react-select__placeholder { color: #58637c; }
+.dark .react-select .react-select__control:not(.react-select__control--menu-is-open) .react-select__indicator-separator { background: #58637c; }
+
+.react-select .react-select__menu { line-height: 30px; margin: 0; border: none; box-shadow: 0 0 5px rgba(0, 0, 0, .05); border-radius: 0; }
+.dark .react-select .react-select__menu { background: #434b5c; }
+.react-select .react-select__menu-list { padding: 10px; }
+.react-select .react-select__menu-list .react-select__option { border-radius: 3px; cursor: pointer; background: transparent!important; transition: all .3s ease; }
+.dark .react-select .react-select__menu-list .react-select__option { color: #FFF; opacity: .6; }
+.react-select .react-select__menu-list .react-select__option--is-focused { background: #fffaf0!important; }
+.dark .react-select .react-select__menu-list .react-select__option--is-focused { background: #64708b!important; }
+.dark .react-select .react-select__menu-list .react-select__option--is-selected,
+.react-select .react-select__menu-list .react-select__option--is-selected { background: #75AECC!important; opacity: 1; }
+
+.select-holder { position: relative; }
+.select-holder .icon-error { position: absolute; top: 50%; transform: translateY(-50%); right: 20px; color: tomato; cursor: pointer; }
+.rtl .select-holder .icon-error { left: 20px; right: auto; }
+.select-holder .icon-error::before { background: #FFF; border-radius: 50%; }
+.select-holder .type-error { background: tomato; }
+.select-holder .type-error::after { border-left-color: tomato!important; }
+
+/* To fix a weird issue! */
+.add-brand .__react_component_tooltip  { transition: none; }
