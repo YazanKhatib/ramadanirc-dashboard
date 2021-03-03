@@ -10,15 +10,16 @@ class API {
 
         const [cookies, setCookie, removeCookie] = useCookies();
 
+        // setCookie("token", { accessToken: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NiwiaWF0IjoxNjE0NTI3NzQ0LCJleHAiOjE2MTQ1Mjg2NDR9.ziszuQqb8HOvMsiFgOCKepUpjwUBXR2CKi2F1D-Rl78" })
+
         // Add Auth header
         axios.interceptors.request.use( (config) => {
 
             config.headers["Accept"] = "application/json"
             config.headers["Content-Type"] = "application/json"
             config.headers["X-Requested-With"] = "XMLHttpRequest"
-            if (cookies.token) {
+            if (cookies.token && !config?.headers?.skip) {
                 config.headers["accessToken"] = cookies.token?.accessToken;
-                // config.headers["refreshToken"] = cookies.refresh_token?.refreshToken;
             }
             return (config);
 
@@ -31,25 +32,24 @@ class API {
             return response
         }, (error) => {
             
-            // const originalRequest = error.config;
+            const originalRequest = error?.response?.config;
 
-            // if (403 === error.response?.status && error.response?.data?.message === "refresh Token needed" && !originalRequest._retry) {
+            if (403 === error?.response?.status && error?.response?.data?.message === "refresh Token needed" && !originalRequest._retry) {
 
-            //     originalRequest._retry = true;
+                originalRequest._retry = true;
 
-            //     return axios.post( `${this.url}/dua/add`, {}, { headers: { "refreshToken": cookies.refresh_token?.refreshToken } } )
-            //     .then((response: any) => {
-            //         if(response.data?.accessToken) {
-            //             setCookie("refresh_token", { refreshToken: response.data?.refreshToken })
-            //             setCookie("token", { accessToken: response.data?.accessToken })
-            //             axios.defaults.headers.common['accessToken'] = response.data?.accessToken;
-            //             return axios(originalRequest);
-            //         }
-            //     })
-            // }
-            // return Promise.reject(error);
-
-            alert("HA!")
+                return axios.post( `${this.url}/dua/add`, {}, { headers: { "refreshToken": cookies.refresh_token?.refreshToken } } )
+                .then((response: any) => {
+                    if(response.data?.accessToken) {
+                        setCookie("refresh_token", { refreshToken: response.data?.refreshToken })
+                        setCookie("token", { accessToken: response.data?.accessToken })
+                        originalRequest.headers["accessToken"] = response.data?.accessToken;
+                        originalRequest.headers["skip"] = true
+                        return axios(originalRequest);
+                    }
+                })
+            }
+            return Promise.reject(error);
 
         });
     }
