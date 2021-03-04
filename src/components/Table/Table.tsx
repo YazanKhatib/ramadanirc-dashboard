@@ -60,7 +60,7 @@ export const DashboardTable = (props: DashboardTableProps) => {
                     <tr key={id} style={{ zIndex: Object.keys(props.body).length - tr_index }} onClick={(e: React.MouseEvent<HTMLTableRowElement>) => { if(!props.hideSelect) selectRow(e, id) }}>
                         { props.hideSelect ? "" : <td width="50"><SimpleCheckbox className="select-row" onClick={(e: React.MouseEvent<HTMLTableDataCellElement>) => e.stopPropagation()} /></td> }
                         { Object.keys(props.body[id]).map( ( key, td_index ) => (
-                            <td key={tr_index + "_" + td_index}>{props.body[id][key]}</td>
+                            <td key={tr_index + "_" + td_index}>{props.body[id][key] || <span style={{ opacity: .4 }}>N/A</span>}</td>
                         ) ) }
                     </tr>
                 ) ) }

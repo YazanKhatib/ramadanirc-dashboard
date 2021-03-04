@@ -72,6 +72,23 @@ class API {
      * Dialy Duas APIs
      * @param {}
      */
+    users(): {
+        index( name?: string ): any;
+        update( query: { id?: number; username?: string; email?: string; age?: number; location?: string; gender?: string; }, name?: string ): any;
+    } {
+        var endpoints:any = {}
+
+        endpoints.index = ( name='user' ) => axios.get( `${this.url}/${name}` )
+        
+        endpoints.update = ( query: any, name='user/update' ) => axios.post( `${this.url}/${name}`, query )
+
+        return endpoints
+    }
+    
+    /**
+     * Dialy Duas APIs
+     * @param {}
+     */
     duas(): {
         index( name?: string ): any;
         add( query: { textArabic?: string; textInbetween?: string; textEnglish?: string; }, name?: string ): any;

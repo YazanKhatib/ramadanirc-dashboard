@@ -41,6 +41,14 @@
     "text": "Text",
     "add_to_tidbits": "Add to tidbits",
     "add_tidbit": "Add tidbit",
-    "edit_tidbit": "Edit tidbit"
+    "edit_tidbit": "Edit tidbit",
+
+    "age": "Age",
+    "gender": "Gender",
+    "location": "Location",
+    "add_user": "Add user",
+    "edit_user": "Edit user",
+    "male": "Male",
+    "female": "Female"
 
 }

@@ -10,6 +10,8 @@ import { checklistSlice } from "../../containers/DailyChecklist/DailyChecklistSl
 import { addTaskSlice } from "../../containers/DailyChecklist/AddModal/AddTaskSlice";
 import { tidbitsSlice } from "../../containers/Tidbits/TidbitsSlice";
 import { addTidbitSlice } from "../../containers/Tidbits/AddModal/AddTidbitSlice";
+import { usersSlice } from "../../containers/Users/UsersSlice";
+import { addUserSlice } from "../../containers/Users/AddModal/AddUserSlice";
 
 
 const reducer = {
@@ -21,7 +23,9 @@ const reducer = {
     checklist: checklistSlice.reducer,
     add_task: addTaskSlice.reducer,
     tidbits: tidbitsSlice.reducer,
-    add_tidbit: addTidbitSlice.reducer
+    add_tidbit: addTidbitSlice.reducer,
+    users: usersSlice.reducer,
+    add_user: addUserSlice.reducer
 }
 
 export default configureStore({

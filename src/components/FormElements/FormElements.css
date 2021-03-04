@@ -229,7 +229,7 @@ form .react-select .react-select__control { height: 55px; border-radius: 10px; b
 .react-select .react-select__menu-list { padding: 10px; }
 .react-select .react-select__menu-list .react-select__option { border-radius: 3px; cursor: pointer; background: transparent!important; transition: all .3s ease; }
 .dark .react-select .react-select__menu-list .react-select__option { color: #FFF; opacity: .6; }
-.react-select .react-select__menu-list .react-select__option--is-focused { background: #fffaf0!important; }
+.react-select .react-select__menu-list .react-select__option--is-focused { background: #effaff!important; }
 .dark .react-select .react-select__menu-list .react-select__option--is-focused { background: #64708b!important; }
 .dark .react-select .react-select__menu-list .react-select__option--is-selected,
 .react-select .react-select__menu-list .react-select__option--is-selected { background: #75AECC!important; opacity: 1; }
