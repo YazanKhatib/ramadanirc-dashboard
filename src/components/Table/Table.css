@@ -39,6 +39,11 @@
 .dashboard-table table tbody tr td .icon-star-o:hover,
 .dashboard-table table tbody tr td .icon-star-2:hover { transform: scale(1.3); }
 
+.dashboard-table table tbody tr td .icon-pin-outline,
+.dashboard-table table tbody tr td .icon-pin { font-size: 20px; margin-left: 5px; display: inline-block; color: #75AECC; transition: all .3s ease; }
+.dashboard-table table tbody tr td .icon-pin-outline:hover,
+.dashboard-table table tbody tr td .icon-pin { transform: scale(1.3); }
+
 .dashboard-table table tbody tr td .icon-open-book { font-size: 23px; margin-left: 35px; display: inline-block; color: #DDD; transition: all .3s ease; }
 .dashboard-table table tbody tr td .icon-open-book.active,
 .dashboard-table table tbody tr td .icon-open-book:hover { transform: scale(1.2); color: #75AECC; }

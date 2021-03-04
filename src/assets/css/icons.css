@@ -453,3 +453,9 @@
 .icon-open-book:before {
     content: "\e030";
 }
+.icon-pin-outline:before {
+    content: "\e031";
+}
+.icon-pin:before {
+    content: "\e032";
+}

@@ -62,7 +62,7 @@ export default () => {
         state.checklist.map( (item, index) => {
             data[item.id] = {
                 name: item.name,
-                fixed: <i className={ "icon-star-" + ( item.fixed ? "2" : "o" ) } onClick={(e: React.MouseEvent<HTMLLIElement>) => toggleFixed(e, item.id, item.fixed) } />,
+                fixed: <i className={ "icon-pin" + ( item.fixed ? "" : "-outline" ) } onClick={(e: React.MouseEvent<HTMLLIElement>) => toggleFixed(e, item.id, item.fixed) } />,
                 actions: <div className="show-on-hover">
                             <i className="icon-edit" onClick={(e: React.MouseEvent<HTMLLIElement>) => edit(e, item.id) } />
                             <i className="icon-delete" onClick={(e: React.MouseEvent<HTMLLIElement>) => {
