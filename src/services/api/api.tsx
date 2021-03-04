@@ -113,6 +113,47 @@ class API {
 
         return endpoints
     }
+    
+    /**
+     * Dialy Checklist APIs
+     * @param {}
+     */
+    tidbits(): {
+        index( name?: string ): any;
+        add( query: { text?: string; }, name?: string ): any;
+        update( query: { id?: number; text?: string; }, name?: string ): any;
+        delete( id: number, name?: string ): any;
+    } {
+        var endpoints:any = {}
+
+        endpoints.index = ( name='tidbit' ) => axios.get( `${this.url}/${name}` )
+
+        endpoints.add = ( query: any, name='tidbit/add' ) => axios.post( `${this.url}/${name}`, query )
+        
+        endpoints.update = ( query: any, name='tidbit/update' ) => axios.post( `${this.url}/${name}`, query )
+
+        endpoints.delete = ( id: number, name='tidbit/delete' ) => axios.get( `${this.url}/${name}/${id}` )
+
+        return endpoints
+    }
+
+    
+    /**
+     * Deed of the day APIs
+     * @param {}
+     */
+    deed_of_the_day(): {
+        get( name?: string ): any;
+        set( query: { id: number; value: string; }, name?: string ): any;
+    } {
+        var endpoints:any = {}
+
+        endpoints.get = ( name='deedoftheday' ) => axios.get( `${this.url}/${name}` )
+
+        endpoints.set = ( query: any, name='deedoftheday/set' ) => axios.post( `${this.url}/${name}`, query )
+
+        return endpoints
+    }
 
 }
 

@@ -8,6 +8,8 @@ import { duasSlice } from "../../containers/DailyDuas/DailyDuasSlice";
 import { addDuaSlice } from "../../containers/DailyDuas/AddModal/AddDuaSlice";
 import { checklistSlice } from "../../containers/DailyChecklist/DailyChecklistSlice";
 import { addTaskSlice } from "../../containers/DailyChecklist/AddModal/AddTaskSlice";
+import { tidbitsSlice } from "../../containers/Tidbits/TidbitsSlice";
+import { addTidbitSlice } from "../../containers/Tidbits/AddModal/AddTidbitSlice";
 
 
 const reducer = {
@@ -17,7 +19,9 @@ const reducer = {
     duas: duasSlice.reducer,
     add_dua: addDuaSlice.reducer,
     checklist: checklistSlice.reducer,
-    add_task: addTaskSlice.reducer
+    add_task: addTaskSlice.reducer,
+    tidbits: tidbitsSlice.reducer,
+    add_tidbit: addTidbitSlice.reducer
 }
 
 export default configureStore({

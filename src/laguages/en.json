@@ -36,6 +36,11 @@
     "fixed": "Fixed",
     "add_task": "Add task",
     "edit_task": "Edit task",
-    "submit": "Submit"
+    "submit": "Submit",
+
+    "text": "Text",
+    "add_to_tidbits": "Add to tidbits",
+    "add_tidbit": "Add tidbit",
+    "edit_tidbit": "Edit tidbit"
 
 }

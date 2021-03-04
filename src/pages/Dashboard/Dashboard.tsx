@@ -9,6 +9,7 @@ import './Dashboard.css'
 import Notifications from '../../containers/Notifications/Notifications'
 import DailyDuas from '../../containers/DailyDuas/DailyDuas'
 import DailyChecklist from '../../containers/DailyChecklist/DailyChecklist'
+import Tidbits from '../../containers/Tidbits/Tidbits'
 
 export default (props: any) => {
 
@@ -35,11 +36,11 @@ export default (props: any) => {
             name: t("daily_checklist"),
             link: "/daily-checklist"
         },
-        {
-            icon: "icon-tasks",
-            name: t("deed_of_the_day"),
-            link: "/dotd"
-        },
+        // {
+        //     icon: "icon-tasks",
+        //     name: t("deed_of_the_day"),
+        //     link: "/dotd"
+        // },
         {
             icon: "icon-notification",
             name: t("notifications"),
@@ -55,6 +56,8 @@ export default (props: any) => {
                 return(<DailyDuas />)
             case "daily-checklist":
                 return(<DailyChecklist />)
+            case "tidbits":
+                return(<Tidbits />)
             case 'notifications':
                 return(<Notifications />)
             default:

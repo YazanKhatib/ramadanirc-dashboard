@@ -44,7 +44,7 @@ export const SideNav = (props: NavProps) => {
         <nav className="side-nav">
             <Scrollbars
                 autoHeight
-                autoHeightMin="75vh"
+                autoHeightMin="460px"
                 autoHide
                 renderTrackHorizontal={props => <div {...props} className="track-horizontal" style={{display:"none"}}/>}
                 renderThumbHorizontal={props => <div {...props} className="thumb-horizontal" style={{display:"none"}}/>} >

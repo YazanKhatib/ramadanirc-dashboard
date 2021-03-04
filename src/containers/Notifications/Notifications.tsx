@@ -36,6 +36,7 @@ export default () => {
                     placeholder={t("notification_text")}
                     rows={5} />
                 <button className="button bg-gold color-white round margin-top-20" style={{ padding: "0 50px" }}>{t("send_notification")}</button>
+                <div className="margin-top-30" />
             </form>
         </div>
     )
