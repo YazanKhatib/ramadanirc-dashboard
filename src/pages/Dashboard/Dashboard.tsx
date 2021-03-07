@@ -49,7 +49,7 @@ export default (props: any) => {
         }
     ]
 
-    let section = props.match.params.section ? props.match.params.section.toLowerCase() : "analytics"
+    let section = props.match.params.section ? props.match.params.section.toLowerCase() : "users"
     
     const dashboardContent = () => {
         switch (section) {

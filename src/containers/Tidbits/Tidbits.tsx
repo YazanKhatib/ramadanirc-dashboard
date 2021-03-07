@@ -41,8 +41,7 @@ export default () => {
         .then( (response: any) => {
 
             // Set deed of the day
-            if(response.data?.deedOfTheDay?.id)
-                dispatch( tidbitsSlice.actions.setActiveDeed({ id: response.data?.deedOfTheDay?.id }) )
+            let deedOfTheDay = Number(response.data?.deedOfTheDay?.id)
 
             ENDPOINTS.tidbits().index()
             .then( (response: any) => {
@@ -58,6 +57,9 @@ export default () => {
                 })
     
                 dispatch( tidbitsSlice.actions.add(tidbits) )
+                setTimeout(() => {
+                    dispatch( tidbitsSlice.actions.setActiveDeed({ id: deedOfTheDay }) )
+                }, 50);
                 dispatch( tidbitsSlice.actions.setIsLoaded(true) )
                 dispatch( tidbitsSlice.actions.setIsFetching(false) )
             })

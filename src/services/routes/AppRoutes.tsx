@@ -34,6 +34,7 @@ class AppRoutes extends Component<{cookies: any}> {
 
                     // Dashboard pages
                     <Switch>
+                        <Route exact path="/reset-password/:token" component={ResetPassword} />
                         <Route path="/:section" component={Dashboard} />
                         <Route path="/" component={Dashboard} />
                     </Switch> }

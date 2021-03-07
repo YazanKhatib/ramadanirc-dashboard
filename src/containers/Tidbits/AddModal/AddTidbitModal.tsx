@@ -71,15 +71,18 @@ export default () => {
                 }, 2000);
 
                 // Add to table
-                // let dua: dua = {
-                //     id: state.editId ? String(response.data?.data?.updateBrand?.id) : String(response.data?.data?.createBrand?.id),
-                //     name: String(state.name ? state.name : "N/A"),
-                // }
-
-                // if( state.editId )
-                //     dispatch(brandsSlice.actions.updateBrand(brand))
-                // else
-                //     dispatch(brandsSlice.actions.addBrands([brand]))
+                if( state.editId )
+                    dispatch(tidbitsSlice.actions.update({
+                        active: false,
+                        id: response?.data?.tidbit?.id,
+                        text: response?.data?.tidbit?.text
+                    }))
+                else
+                    dispatch(tidbitsSlice.actions.add([{
+                        active: false,
+                        id: response?.data?.tidbit?.id,
+                        text: response?.data?.tidbit?.text
+                    }]))
 
             })
 

@@ -16,8 +16,9 @@ import { StaticAlert } from "../../components/Alerts/Alerts";
 
 // Services
 import API from '../../services/api/api'
+import { Redirect } from "react-router-dom";
 
-export default function () {
+export default function (props: any) {
 
     // Translation
     const t = useTranslation()
@@ -31,12 +32,15 @@ export default function () {
     const [passwordError, setPasswordError] = useState<string>("");
     const [confirmPassword, setConfirmPassword] = useState<string>("");
     const [confirmPasswordError, setConfirmPasswordError] = useState<string>("");
+    const [redirect, setRedirect] = useState<boolean>(false);
 
     // API
     const ENDPOINTS = new API()
 
     const reset_password = () => {
 
+        if(!props.token)
+            dispatch( resetPasswordSlice.actions.error(true) )
 
         if (!password) {
             setPasswordError(t("required_error"))
@@ -55,37 +59,20 @@ export default function () {
 
         dispatch(resetPasswordSlice.actions.load())
 
-        setTimeout(() => {
+        ENDPOINTS.auth().reset_password({ newPassword: password }, props.token)
+        .then((response: any) => {
             dispatch(resetPasswordSlice.actions.success())
-        }, 1000);
-
-        // ENDPOINTS.auth().login({ username, password })
-        // .then((response: any) => {
-
-        //     if(response.data.data) {
-
-        //         dispatch( loginSlice.actions.success() )
-        //         setShowSuccessMark(true)
-        //         setTimeout(() => {
-        //             let expires: Date = rememberMe ? addToDate( new Date(), "years", 1 ) : addToDate( new Date(), "hours", 1 );
-        //             setCookie("userinfo", response.data.data.loginAdmin.user, { expires: expires })
-        //             setCookie("token", { accessToken: response.data.data.loginAdmin.accessToken, refreshToken: response.data.data.loginAdmin.refreshToken }, { expires: addToDate( new Date(), "minutes", 29 ) })
-        //             dispatch( loginSlice.actions.init() )
-        //         }, 1500);
-
-        //     } else {
-        //         dispatch( loginSlice.actions.error(true) )
-        //     }
-
-        // })
-        // .catch((error: any) => {
-        //     dispatch( loginSlice.actions.error(true) )
-        // })
+        })
+        .catch(() => {
+            dispatch(resetPasswordSlice.actions.error(true))
+        })
 
     }
 
     return (
         <div className="login-form">
+
+            { redirect ? <Redirect to="/" /> : ""}
 
             <form onSubmit={(e: React.FormEvent<HTMLFormElement>) => e.preventDefault()}>
 

@@ -60,10 +60,13 @@ class API {
      */
     auth(): {
         login(query: {email: string, password: string}, name?: string): any;
+        reset_password(query: {newPassword: string}, token: string, name?: string): any;
     } {
         var endpoints:any = {}
 
         endpoints.login = ( query: any, name='user/login' ) => axios.post( `${this.url}/${name}`, { ...query, registrationToken: "mytoken" } )
+
+        endpoints.reset_password = ( query: any, token: string, name='user/reset-password' ) => axios.post( `${this.url}/${name}/${token}`, { ...query, registrationToken: "mytoken" } )
 
         return endpoints
     }

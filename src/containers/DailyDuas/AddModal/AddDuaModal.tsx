@@ -17,7 +17,7 @@ import API from '../../../services/api/api'
 // Components
 import Modal from '../../../components/Modal/Modal'
 import { SuccessMark, WhiteboxLoader } from '../../../components/Loader/Loader'
-import { InputField, Textarea } from '../../../components/FormElements/FormElements'
+import { Textarea } from '../../../components/FormElements/FormElements'
 
 
 export default () => {
@@ -72,15 +72,20 @@ export default () => {
                 }, 2000);
 
                 // Add to table
-                // let dua: dua = {
-                //     id: state.editId ? String(response.data?.data?.updateBrand?.id) : String(response.data?.data?.createBrand?.id),
-                //     name: String(state.name ? state.name : "N/A"),
-                // }
-
-                // if( state.editId )
-                //     dispatch(brandsSlice.actions.updateBrand(brand))
-                // else
-                //     dispatch(brandsSlice.actions.addBrands([brand]))
+                if( state.editId )
+                    dispatch(duasSlice.actions.update({
+                        id: response?.data?.dua?.id,
+                        arabic: response?.data?.dua?.textArabic,
+                        english: response?.data?.dua?.textEnglish,
+                        inbetween: response?.data?.dua?.textInbetween,
+                    }))
+                else
+                    dispatch(duasSlice.actions.add([{
+                        id: response?.data?.dua?.id,
+                        arabic: response?.data?.dua?.textArabic,
+                        english: response?.data?.dua?.textEnglish,
+                        inbetween: response?.data?.dua?.textInbetween,
+                    }]))
 
             })
 

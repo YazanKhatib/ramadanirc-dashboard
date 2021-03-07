@@ -7,7 +7,7 @@ import { resetPasswordState } from "../../containers/ResetPasswordForm/ResetPass
 import Logo from '../../assets/images/logo/primary.svg'
 import { LanguageSwitcher, LightDarkModeSwitcher } from "../../components/FormElements/FormElements"
 
-export default () => {
+export default (props: any) => {
 
     const resetPasswordState = useSelector((state: { reset_password: resetPasswordState }) => state.reset_password)
 
@@ -20,7 +20,7 @@ export default () => {
                     
                     { resetPasswordState.isSuccess ? "" : <div className="text-center"><img src={Logo} className="logo" /></div> }
 
-                    <ResetPasswordForm />
+                    <ResetPasswordForm token={props?.match?.params?.token} />
 
                 </div>
 
