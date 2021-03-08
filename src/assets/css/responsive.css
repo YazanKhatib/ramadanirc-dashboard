@@ -1,6 +1,6 @@
 @media only screen and (max-width: 768px) {
     /* Side nav */
-    .side-nav { top: auto; transform: translate(0, 0); bottom: 10px; width: 90%; left: 5%; max-height: 70px; overflow-y: hidden; border-radius: 20px; text-align: left; }
+    .side-nav { top: auto; transform: translate(0, 0); bottom: 10px; width: 90%; left: 5%; max-height: 70px; overflow-y: hidden; border-radius: 20px; text-align: left; z-index: 100; }
     .side-nav ul { white-space: nowrap; }
     .side-nav ul li { display: inline-block; height: auto; text-align: center; margin-top: 11.5px; padding: 0 20px; transform: scale(.9); }
     .side-nav ul li a { height: auto; text-decoration: none; }
@@ -20,6 +20,7 @@
 
     /* Table */
     .dashboard-table { padding: 0; }
+    .dashboard-table table { word-break: break-all; }
     .dashboard-table th:nth-child(n+3),
     .dashboard-table td:nth-child(n+3) { display: none; }
     .dashboard-table th:last-child,
