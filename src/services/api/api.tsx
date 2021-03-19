@@ -140,8 +140,8 @@ class API {
      */
     tidbits(): {
         index( name?: string ): any;
-        add( query: { text?: string; }, name?: string ): any;
-        update( query: { id?: number; text?: string; }, name?: string ): any;
+        add( query: { textEnglish?: string; textFrench?: string; }, name?: string ): any;
+        update( query: { id?: number; textEnglish?: string; textFrench?: string; }, name?: string ): any;
         delete( id: number, name?: string ): any;
     } {
         var endpoints:any = {}

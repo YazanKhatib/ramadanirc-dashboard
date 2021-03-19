@@ -3,7 +3,8 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 // Models
 export interface tidbit {
     id: number;
-    text: string;
+    textEnglish: string;
+    textFrench: string;
     active: boolean;
 }
 

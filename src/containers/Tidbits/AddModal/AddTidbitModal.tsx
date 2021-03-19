@@ -45,7 +45,7 @@ export default () => {
 
         e.preventDefault()
 
-        if( !state.fields.text ) {
+        if( !state.fields.textEnglish || !state.fields.textFrench ) {
             setShowErrors(true)
             return
         }
@@ -57,6 +57,8 @@ export default () => {
 
         api_call({
             id: state.editId,
+            textEnglish: state.fields.textEnglish,
+            textFrench: state.fields.textFrench,
             ...state.fields
         })
             .then((response: any) => {
@@ -75,13 +77,15 @@ export default () => {
                     dispatch(tidbitsSlice.actions.update({
                         active: false,
                         id: response?.data?.tidbit?.id,
-                        text: response?.data?.tidbit?.text
+                        textEnglish: response?.data?.tidbit?.textEnglish,
+                        textFrench: response?.data?.tidbit?.textFrench
                     }))
                 else
                     dispatch(tidbitsSlice.actions.add([{
                         active: false,
                         id: response?.data?.tidbit?.id,
-                        text: response?.data?.tidbit?.text
+                        textEnglish: response?.data?.tidbit?.textEnglish,
+                        textFrench: response?.data?.tidbit?.textFrench
                     }]))
 
             })
@@ -106,12 +110,22 @@ export default () => {
                     <Col md={12}>
                         <Textarea
                             rows={4}
-                            label={t("text")}
-                            error={showErrors && !state.fields.text ? t("required_error") : ""}
+                            label={t("text_english")}
+                            error={showErrors && !state.fields.textEnglish ? t("required_error") : ""}
                             onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-                                dispatch(addTidbitSlice.actions.set({ text: e.target.value }))
+                                dispatch(addTidbitSlice.actions.set({ textEnglish: e.target.value }))
                             }}
-                            value={state.fields.text} />
+                            value={state.fields.textEnglish} />
+                    </Col>
+                    <Col md={12}>
+                        <Textarea
+                            rows={4}
+                            label={t("text_french")}
+                            error={showErrors && !state.fields.textFrench ? t("required_error") : ""}
+                            onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+                                dispatch(addTidbitSlice.actions.set({ textFrench: e.target.value }))
+                            }}
+                            value={state.fields.textFrench} />
                     </Col>
                 </Row>
 

@@ -2,7 +2,8 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 // Tidbit state
 export interface tidbit {
-    text?: string;
+    textEnglish?: string;
+    textFrench?: string;
 }
 export interface addTidbitState {
     fields: tidbit;

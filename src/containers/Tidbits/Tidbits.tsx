@@ -51,7 +51,8 @@ export default () => {
                 response.data?.tidbits?.map( (item: any) => {
                     tidbits.push({
                         id: Number(item.id),
-                        text: String(item.text ? item.text : "N/A"),
+                        textEnglish: String(item.textEnglish ? item.textEnglish : "N/A"),
+                        textFrench: String(item.textFrench ? item.textFrench : "N/A"),
                         active: false
                     })
                 })
@@ -73,7 +74,8 @@ export default () => {
         let data: tableDataType = {}
         state.tidbits.map( (item, index) => {
             data[item.id] = {
-                text: item.text,
+                textEnglish: item.textEnglish,
+                textFrench: item.textFrench,
                 fixed: <i className={ "icon-open-book" + ( item.active ? " active" : "" ) } onClick={(e: React.MouseEvent<HTMLLIElement>) => setActiveDeed(e, item.id) } />,
                 actions: <div className="show-on-hover">
                             <i className="icon-edit" onClick={(e: React.MouseEvent<HTMLLIElement>) => edit(e, item.id) } />
@@ -93,7 +95,8 @@ export default () => {
         let tidbitToEdit = state.tidbits.find(tidbit => tidbit.id === id)
         if(tidbitToEdit) {
             dispatch( addTidbitSlice.actions.set({
-                text: tidbitToEdit.text
+                textEnglish: tidbitToEdit.textEnglish,
+                textFrench: tidbitToEdit.textFrench
             }) )
             dispatch( addTidbitSlice.actions.setEditId(tidbitToEdit.id) )
             dispatch( addTidbitSlice.actions.setIsOpen(true) )
@@ -158,7 +161,7 @@ export default () => {
                     />
                 
                 <DashboardTable
-                    header={[ t("text"), t("deed_of_the_day"), "" ]}
+                    header={[ t("text_english"), t("text_french"), t("deed_of_the_day"), "" ]}
                     body={generateData()}
                     onSelect={toggleSelectedId}
                     hasMore={state.hasMore}

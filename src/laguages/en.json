@@ -49,6 +49,9 @@
     "add_user": "Add user",
     "edit_user": "Edit user",
     "male": "Male",
-    "female": "Female"
+    "female": "Female",
+
+    "text_english": "Text - English",
+    "text_french": "Text - French"
 
 }
