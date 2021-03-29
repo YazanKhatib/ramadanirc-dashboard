@@ -12,6 +12,8 @@ import { tidbitsSlice } from "../../containers/Tidbits/TidbitsSlice";
 import { addTidbitSlice } from "../../containers/Tidbits/AddModal/AddTidbitSlice";
 import { usersSlice } from "../../containers/Users/UsersSlice";
 import { addUserSlice } from "../../containers/Users/AddModal/AddUserSlice";
+import { notificationsSlice } from "../../containers/Notifications/NotificationsSlice";
+import { addNotificationSlice } from "../../containers/Notifications/AddModal/AddNotificationSlice";
 
 
 const reducer = {
@@ -25,7 +27,9 @@ const reducer = {
     tidbits: tidbitsSlice.reducer,
     add_tidbit: addTidbitSlice.reducer,
     users: usersSlice.reducer,
-    add_user: addUserSlice.reducer
+    add_user: addUserSlice.reducer,
+    notifications: notificationsSlice.reducer,
+    add_notification: addNotificationSlice.reducer
 }
 
 export default configureStore({

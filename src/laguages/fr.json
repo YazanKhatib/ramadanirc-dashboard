@@ -1,24 +1,62 @@
 {
     
     "username": "Nom d'utilisateur",
+    "email": "Courriel",
     "password": "Mot de passe",
     "confirm_password": "Confirmez le mot de passe",
-    "remember_me": "Souviens-toi de moi",
+    "remember_me": "Se souvenir de moi",
     "login": "Connexion",
     "required_error": "Veuillez remplir ce champ",
     "login_error": "Données invalides. Veuillez vérifier vos informations.",
-    "reset_success": "Votre mot de passe a été changé avec succès!",
+    "reset_success": "Votre mot de passe a été changé!",
     "reset_password": "Réinitialiser le mot de passe",
     "passwords_didnt_match": "Les mots de passe ne correspondent pas",
 
     "users": "Utilisateurs",
     "notifications": "Notifications",
     "daily_duas": "Duas quotidiens",
-    "tidbits": "Tidbits",
-    "daily_checklist": "Liste de contrôle quotidienne",
+    "tidbits": "Conseil",
+    "daily_checklist": "Liste de d'action quotidienne",
     "deed_of_the_day": "Acte du jour",
 
     "notification_text": "Texte de notification",
-    "send_notification": "Envoyer une notification"
+    "send_notification": "Envoyer une notification",
+
+    "full_name": "Nom complet",
+
+    "duas": "Dua",
+    "dua_arabic": "Dua - arabe",
+    "dua_in_between": "Transcription arabe",
+    "dua_english": "Dua - anglais",
+    "dua_french": "Dua - français",
+    "add_to_duas": "Ajouter aux duas",
+    "add_dua": "Ajouter dua",
+    "edit_dua": "Modifier dua",
+
+    "checklist": "Liste de d'action",
+    "add_to_tasks": "Ajouter aux tâches",
+    "name": "Nom",
+    "fixed": "Fixé",
+    "add_task": "Ajouter une tâche",
+    "edit_task": "Modifier la tâche",
+    "submit": "Soumettre",
+
+    "text": "Texte",
+    "add_to_tidbits": "Ajouter aux conseil",
+    "add_tidbit": "Ajouter un conseil",
+    "edit_tidbit": "Modifier Le conseil",
+
+    "age": "Âge",
+    "gender": "Le sexe",
+    "location": "Lieu",
+    "add_user": "Ajouter un utilisateur",
+    "edit_user": "Modifier l'utilisateur",
+    "male": "Mâle",
+    "female": "Femelle",
+
+    "text_english": "Texte - anglais",
+    "text_french": "Texte - français",
+
+    "date": "Date"
 
 }

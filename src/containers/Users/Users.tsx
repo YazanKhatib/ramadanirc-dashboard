@@ -123,7 +123,7 @@ export default () => {
                     />
                 
                 <DashboardTable
-                    header={[ t("username"), t("email"), t("age"), t("gender"), t("location"), "" ]}
+                    header={[ t("full_name"), t("email"), t("age"), t("gender"), t("location"), "" ]}
                     body={generateData()}
                     onSelect={toggleSelectedId}
                     hasMore={state.hasMore}

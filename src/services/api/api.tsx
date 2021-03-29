@@ -6,7 +6,7 @@ class API {
     url: string;
 
     constructor() {
-        this.url = "http://157.230.215.132"
+        this.url = "https://www.ircanada.info"
 
         const [cookies, setCookie, removeCookie] = useCookies();
 
@@ -171,6 +171,29 @@ class API {
         endpoints.get = ( name='deedoftheday' ) => axios.get( `${this.url}/${name}` )
 
         endpoints.set = ( query: any, name='deedoftheday/set' ) => axios.post( `${this.url}/${name}`, query )
+
+        return endpoints
+    }
+
+    /**
+     * Notifications APIs
+     * @param {}
+     */
+     notifications(): {
+        index( name?: string ): any;
+        add( query: { titleEnglish?: string; titleFrench?: string; bodyEnglish?: string; bodyFrench?: string; date?: string; }, name?: string ): any;
+        update( query: { id?: number; titleEnglish?: string; titleFrench?: string; bodyEnglish?: string; bodyFrench?: string; date?: string; }, name?: string ): any;
+        delete( id: number, name?: string ): any;
+    } {
+        var endpoints:any = {}
+
+        endpoints.index = ( name='message/get' ) => axios.get( `${this.url}/${name}` )
+
+        endpoints.add = ( query: any, name='message/add' ) => axios.post( `${this.url}/${name}`, query )
+        
+        endpoints.update = ( query: any, name='message/update' ) => axios.post( `${this.url}/${name}`, query )
+
+        endpoints.delete = ( id: number, name='message/delete' ) => axios.get( `${this.url}/${name}/${id}` )
 
         return endpoints
     }

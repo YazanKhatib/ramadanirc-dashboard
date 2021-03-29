@@ -1,35 +1,37 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 // Models
-export interface dua {
+export interface notification {
     id: number;
-    arabic: string;
-    inbetween: string;
-    english: string;
-    french: string;
+    titleEnglish: string;
+    titleFrench: string;
+    bodyEnglish: string;
+    bodyFrench: string;
+    date: string;
+    status: string;
 }
 
-// Duas state
-export interface duasState {
+// notifications state
+export interface notificationsState {
     isLoaded: boolean; // First load
     isLoading: boolean; // On delete/update laoder
     isFetching: boolean;
     hasMore: boolean;
-    duas: dua[];
+    notifications: notification[];
 }
 
-const initialState: duasState = {
+const initialState: notificationsState = {
     isLoaded: false,
     isLoading: false,
     isFetching: false,
     hasMore: false,
-    duas: [],
+    notifications: [],
 }
 
-// Duas slice
-export const duasSlice = createSlice({
-    name: 'duas',
-    initialState: initialState,
+// notifications slice
+export const notificationsSlice = createSlice({
+    name: 'notifications',
+    initialState,
     reducers: {
         setIsLoaded: ( state, {payload}: PayloadAction<boolean> ) => {
             state.isLoaded = payload
@@ -43,20 +45,20 @@ export const duasSlice = createSlice({
         setHasMore: ( state, {payload}: PayloadAction<boolean> ) => {
             state.hasMore = payload
         },
-        add: ( state, {payload}: PayloadAction<dua[]> ) => {
-            state.duas = [ ...state.duas, ...payload ]
+        add: ( state, {payload}: PayloadAction<notification[]> ) => {
+            state.notifications = [ ...state.notifications, ...payload ]
         },
-        update: ( state, {payload}: PayloadAction<dua> ) => {
-            let index = state.duas.findIndex( dua => dua.id === payload.id )
+        update: ( state, {payload}: PayloadAction<notification> ) => {
+            let index = state.notifications.findIndex( notification => notification.id === payload.id )
             alert(index)
             if( index !== -1 )
-                state.duas[index] = payload
+                state.notifications[index] = payload
         },
         delete: ( state, {payload}: PayloadAction<number[]> ) => {
             payload.map(id => {
-                let index = state.duas.findIndex( dua => dua.id === id )
+                let index = state.notifications.findIndex( notification => notification.id === id )
                 if( index != -1 )
-                    state.duas.splice( index, 1 )
+                    state.notifications.splice( index, 1 )
             })
         }
     }

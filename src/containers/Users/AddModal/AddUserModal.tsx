@@ -104,7 +104,7 @@ export default () => {
                 <Row>
                     <Col md={12}>
                         <InputField
-                            label={t("username")}
+                            label={t("full_name")}
                             error={showErrors && !state.fields.username ? t("required_error") : ""}
                             onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
                                 dispatch(addUserSlice.actions.set({ username: e.target.value }))

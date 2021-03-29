@@ -46,6 +46,7 @@ export default () => {
                     id: Number(item.id),
                     arabic: String(item.textArabic ? item.textArabic : "N/A"),
                     english: String(item.textEnglish ? item.textEnglish : "N/A"),
+                    french: String(item.textFrench ? item.textFrench : "N/A"),
                     inbetween: String(item.textInbetween ? item.textInbetween : "N/A"),
                 })
             })
@@ -64,6 +65,7 @@ export default () => {
             data[item.id] = {
                 dua_arabic: <span style={{ display: "block", textAlign: "right" }}>{item.arabic}</span>,
                 dua_english: item.english,
+                dua_french: item.french,
                 dua_in_between: item.inbetween,
                 actions: <div className="show-on-hover">
                             <i className="icon-edit" onClick={(e: React.MouseEvent<HTMLLIElement>) => edit(e, item.id) } />
@@ -141,7 +143,7 @@ export default () => {
                     />
                 
                 <DashboardTable
-                    header={[ t("dua_arabic"), t("dua_english"), t("dua_in_between"), "" ]}
+                    header={[ t("dua_arabic"), t("dua_english"), t("dua_french"), t("dua_in_between"), "" ]}
                     body={generateData()}
                     onSelect={toggleSelectedId}
                     hasMore={state.hasMore}

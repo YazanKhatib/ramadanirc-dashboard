@@ -22,10 +22,13 @@
     "notification_text": "Notification text",
     "send_notification": "Send notification",
 
+    "full_name": "Full name",
+
     "duas": "Daily Duas",
     "dua_arabic": "Dua - Arabic",
-    "dua_in_between": "Dua - In between",
+    "dua_in_between": "Arabic transcription",
     "dua_english": "Dua - English",
+    "dua_french": "Dua - French",
     "add_to_duas": "Add to duas",
     "add_dua": "Add dua",
     "edit_dua": "Edit dua",
@@ -52,6 +55,19 @@
     "female": "Female",
 
     "text_english": "Text - English",
-    "text_french": "Text - French"
+    "text_french": "Text - French",
+
+    "date": "Date",
+
+    "add_to_notifications": "Add to notifications",
+    "title": "Title",
+    "title_english": "Title - English",
+    "body": "Body",
+    "body_english": "Body - English",
+    "title_french": "Title - French",
+    "body_french": "Body - French",
+    "status": "Status",
+    "add_notification": "Add notification",
+    "edit_notification": "Edit notification"
 
 }

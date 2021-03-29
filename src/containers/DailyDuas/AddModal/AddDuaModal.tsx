@@ -46,7 +46,7 @@ export default () => {
 
         e.preventDefault()
 
-        if( !state.fields.textArabic || !state.fields.textInbetween || !state.fields.textEnglish ) {
+        if( !state.fields.textArabic || !state.fields.textInbetween || !state.fields.textEnglish || !state.fields.textFrench ) {
             setShowErrors(true)
             return
         }
@@ -78,6 +78,7 @@ export default () => {
                         arabic: response?.data?.dua?.textArabic,
                         english: response?.data?.dua?.textEnglish,
                         inbetween: response?.data?.dua?.textInbetween,
+                        french:  response?.data?.dua?.textFrench
                     }))
                 else
                     dispatch(duasSlice.actions.add([{
@@ -85,6 +86,7 @@ export default () => {
                         arabic: response?.data?.dua?.textArabic,
                         english: response?.data?.dua?.textEnglish,
                         inbetween: response?.data?.dua?.textInbetween,
+                        french:  response?.data?.dua?.textFrench
                     }]))
 
             })
@@ -125,6 +127,16 @@ export default () => {
                                 dispatch(addDuaSlice.actions.set({ textEnglish: e.target.value }))
                             }}
                             value={state.fields.textEnglish} />
+                    </Col>
+                    <Col md={12} className="add-brand">
+                        <Textarea
+                            rows={4}
+                            label={t("dua_french")}
+                            error={showErrors && !state.fields.textFrench ? t("required_error") : ""}
+                            onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+                                dispatch(addDuaSlice.actions.set({ textFrench: e.target.value }))
+                            }}
+                            value={state.fields.textFrench} />
                     </Col>
                     <Col md={12} className="add-brand">
                         <Textarea
