@@ -106,6 +106,26 @@ export default () => {
                             }}
                             value={state.fields.name} />
                     </Col>
+                    <Col md={12}>
+                        <InputField
+                            rows={4}
+                            label={t("icon_url")}
+                            // error={showErrors && !state.fields.notSelectedIcon ? t("required_error") : ""}
+                            onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+                                dispatch(addTaskSlice.actions.set({ notSelectedIcon: e.target.value }))
+                            }}
+                            value={state.fields.notSelectedIcon} />
+                    </Col>
+                    <Col md={12}>
+                        <InputField
+                            rows={4}
+                            label={t("selected_icon_url")}
+                            // error={showErrors && !state.fields.selectedIcon ? t("required_error") : ""}
+                            onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+                                dispatch(addTaskSlice.actions.set({ selectedIcon: e.target.value }))
+                            }}
+                            value={state.fields.selectedIcon} />
+                    </Col>
                 </Row>
 
                 <button className="button round bg-gold color-white margin-top-30" style={{ padding: "0 80px", marginBottom: 5 }}>{t("submit")}</button>

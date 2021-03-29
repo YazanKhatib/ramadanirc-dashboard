@@ -68,6 +68,11 @@
     "body_french": "Body - French",
     "status": "Status",
     "add_notification": "Add notification",
-    "edit_notification": "Edit notification"
+    "edit_notification": "Edit notification",
+
+    "icon": "Icon",
+    "selected_icon": "Selected icon",
+    "icon_url": "Icon url",
+    "selected_icon_url": "Selected icon url"
 
 }

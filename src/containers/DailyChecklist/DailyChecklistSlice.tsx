@@ -5,6 +5,8 @@ export interface task {
     id: number;
     name: string;
     fixed: boolean;
+    notSelectedIcon: string;
+    selectedIcon: string;
 }
 
 // checklist state

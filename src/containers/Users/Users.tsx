@@ -113,12 +113,12 @@ export default () => {
             <>
                 { state.isLoading ? <WhiteboxLoader /> : ""}
                 <TableActionBar
-                    title={t("tidbits")}
+                    title={t("users")}
                     // search={search}
                     showFilter={false}
                     showDelete={selectedIds.length > 0}
-                    // add={() => dispatch( addTidbitSlice.actions.setIsOpen(true) )}
-                    addText={t("add_to_tidbits")}
+                    // add={() => dispatch( adduserSlice.actions.setIsOpen(true) )}
+                    addText={t("add_to_users")}
                     // delete={remove}
                     />
                 

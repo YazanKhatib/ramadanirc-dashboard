@@ -45,7 +45,9 @@ export default () => {
                 checklist.push({
                     id: Number(item.id),
                     name: String(item.name ? item.name : "N/A"),
-                    fixed: Boolean(item.fixed)
+                    fixed: Boolean(item.fixed),
+                    notSelectedIcon: item.notSelectedIcon,
+                    selectedIcon: item.selectedIcon
                 })
             })
 
@@ -62,6 +64,8 @@ export default () => {
         state.checklist.map( (item, index) => {
             data[item.id] = {
                 name: item.name,
+                icon: item.notSelectedIcon ? <img src={item.notSelectedIcon} style={{ width: 25, padding: 5, background: "#FAFAFA", borderRadius: 3 }} /> : "N/A",
+                selected_icon: item.selectedIcon ? <img src={item.selectedIcon} style={{ width: 25, padding: 5, background: "#FAFAFA", borderRadius: 3 }} /> : "N/A",
                 fixed: <i className={ "icon-pin" + ( item.fixed ? "" : "-outline" ) } onClick={(e: React.MouseEvent<HTMLLIElement>) => toggleFixed(e, item.id, item.fixed) } />,
                 actions: <div className="show-on-hover">
                             <i className="icon-edit" onClick={(e: React.MouseEvent<HTMLLIElement>) => edit(e, item.id) } />
@@ -146,7 +150,7 @@ export default () => {
                     />
                 
                 <DashboardTable
-                    header={[ t("name"), t("fixed"), "" ]}
+                    header={[ t("name"), t("icon"), t("selected_icon"), t("fixed"), "" ]}
                     body={generateData()}
                     onSelect={toggleSelectedId}
                     hasMore={state.hasMore}

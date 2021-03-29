@@ -3,6 +3,8 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 // Task state
 export interface task {
     name?: string;
+    notSelectedIcon?: string;
+    selectedIcon?: string;
 }
 export interface addTaskState {
     fields: task;
