@@ -7,6 +7,7 @@ export interface user {
     age?: number;
     location?: string;
     gender?: string;
+    password?: string;
 }
 export interface addUserState {
     fields: user;

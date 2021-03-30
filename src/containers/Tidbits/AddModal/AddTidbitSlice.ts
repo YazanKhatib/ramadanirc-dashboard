@@ -4,6 +4,7 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 export interface tidbit {
     textEnglish?: string;
     textFrench?: string;
+    deed_of_the_day?: string;
 }
 export interface addTidbitState {
     fields: tidbit;
@@ -14,7 +15,13 @@ export interface addTidbitState {
 }
 
 const initial: addTidbitState = {
-    fields: {},
+    fields: {
+        deed_of_the_day: new Date().toLocaleString("sv-SE", {
+            year: "numeric",
+            month: "2-digit",
+            day: "2-digit"
+        })
+    },
     editId: 0,
     isLoading: false,
     isSuccess: false,

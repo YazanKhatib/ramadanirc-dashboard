@@ -53,7 +53,8 @@ export default () => {
                         id: Number(item.id),
                         textEnglish: String(item.textEnglish ? item.textEnglish : "N/A"),
                         textFrench: String(item.textFrench ? item.textFrench : "N/A"),
-                        active: false
+                        active: false,
+                        deed_of_the_day: String(item.deedOfTheDayDate || "N/A")
                     })
                 })
     
@@ -76,7 +77,15 @@ export default () => {
             data[item.id] = {
                 textEnglish: item.textEnglish,
                 textFrench: item.textFrench,
-                fixed: <i className={ "icon-open-book" + ( item.active ? " active" : "" ) } onClick={(e: React.MouseEvent<HTMLLIElement>) => setActiveDeed(e, item.id) } />,
+                deed_of_the_day: item.deed_of_the_day === "N/A" ? item.deed_of_the_day : new Date(item.deed_of_the_day).toLocaleString("sv-SE", {
+                    year: "numeric",
+                    month: "2-digit",
+                    day: "2-digit",
+                    // hour: "2-digit",
+                    // minute: "2-digit",
+                    // second: "2-digit"
+                }),
+                // deed_of_the_day: <i className={ "icon-open-book" + ( item.active ? " active" : "" ) } onClick={(e: React.MouseEvent<HTMLLIElement>) => setActiveDeed(e, item.id) } />,
                 actions: <div className="show-on-hover">
                             <i className="icon-edit" onClick={(e: React.MouseEvent<HTMLLIElement>) => edit(e, item.id) } />
                             <i className="icon-delete" onClick={(e: React.MouseEvent<HTMLLIElement>) => {
@@ -96,7 +105,12 @@ export default () => {
         if(tidbitToEdit) {
             dispatch( addTidbitSlice.actions.set({
                 textEnglish: tidbitToEdit.textEnglish,
-                textFrench: tidbitToEdit.textFrench
+                textFrench: tidbitToEdit.textFrench,
+                deed_of_the_day: new Date(tidbitToEdit.deed_of_the_day).toLocaleString("sv-SE", {
+                    year: "numeric",
+                    month: "2-digit",
+                    day: "2-digit"
+                })
             }) )
             dispatch( addTidbitSlice.actions.setEditId(tidbitToEdit.id) )
             dispatch( addTidbitSlice.actions.setIsOpen(true) )

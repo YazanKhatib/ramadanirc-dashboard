@@ -73,8 +73,8 @@ export default () => {
                     year: "numeric",
                     month: "2-digit",
                     day: "2-digit",
-                    hour: "2-digit",
-                    minute: "2-digit"
+                    // hour: "2-digit",
+                    // minute: "2-digit"
                 }),
                 status: item.status,
                 actions: <div className="show-on-hover">
@@ -103,9 +103,9 @@ export default () => {
                     year: "numeric",
                     month: "2-digit",
                     day: "2-digit",
-                    hour: "2-digit",
-                    minute: "2-digit",
-                    second: "2-digit"
+                    // hour: "2-digit",
+                    // minute: "2-digit",
+                    // second: "2-digit"
                 }).replace(" ", "T")
             }) )
             dispatch( addNotificationSlice.actions.setEditId(notificationToEdit.id) )

@@ -77,7 +77,7 @@ class API {
      */
     users(): {
         index( name?: string ): any;
-        update( query: { id?: number; username?: string; email?: string; age?: number; location?: string; gender?: string; }, name?: string ): any;
+        update( query: { id?: number; username?: string; email?: string; age?: number; location?: string; gender?: string; password?: string; }, name?: string ): any;
     } {
         var endpoints:any = {}
 

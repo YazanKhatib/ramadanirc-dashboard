@@ -18,6 +18,7 @@ import API from '../../../services/api/api'
 import Modal from '../../../components/Modal/Modal'
 import { SuccessMark, WhiteboxLoader } from '../../../components/Loader/Loader'
 import { InputField, Textarea } from '../../../components/FormElements/FormElements'
+import { formatDate } from '../../../services/hoc/helpers'
 
 
 export default () => {
@@ -61,34 +62,40 @@ export default () => {
             textFrench: state.fields.textFrench,
             ...state.fields
         })
-            .then((response: any) => {
-                
+        .then((response: any) => {
+
+            ENDPOINTS.deed_of_the_day().set({ id: response?.data?.tidbit?.id, value: formatDate(new Date(state.fields.deed_of_the_day || "")) })
+            .then((deed_response: any) => {
                 dispatch(addTidbitSlice.actions.setIsLoading(false))
-
+    
                 dispatch(addTidbitSlice.actions.setIsSuccess(true))
-
+    
                 setTimeout(() => {
                     dispatch( addTidbitSlice.actions.init() )
                     dispatch( addTidbitSlice.actions.setIsOpen(false) )
                 }, 2000);
-
+    
                 // Add to table
                 if( state.editId )
                     dispatch(tidbitsSlice.actions.update({
                         active: false,
                         id: response?.data?.tidbit?.id,
                         textEnglish: response?.data?.tidbit?.textEnglish,
-                        textFrench: response?.data?.tidbit?.textFrench
+                        textFrench: response?.data?.tidbit?.textFrench,
+                        deed_of_the_day: new Date(state.fields.deed_of_the_day || "").toISOString()
                     }))
                 else
                     dispatch(tidbitsSlice.actions.add([{
                         active: false,
                         id: response?.data?.tidbit?.id,
                         textEnglish: response?.data?.tidbit?.textEnglish,
-                        textFrench: response?.data?.tidbit?.textFrench
+                        textFrench: response?.data?.tidbit?.textFrench,
+                        deed_of_the_day: new Date(state.fields.deed_of_the_day || "").toISOString()
                     }]))
-
             })
+            
+
+        })
 
     }
 
@@ -128,6 +135,20 @@ export default () => {
                             value={state.fields.textFrench} />
                     </Col>
                 </Row>
+                <Col md={12} className="add-brand">
+                    <InputField
+                        type="date"
+                        label={t("deed_of_the_day")}
+                        onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+                            let date = new Date(e.target.value)
+                            dispatch(addTidbitSlice.actions.set({ deed_of_the_day: date.toLocaleString("sv-SE", {
+                                year: "numeric",
+                                month: "2-digit",
+                                day: "2-digit",
+                            }).replace(" ", "T") }))
+                        }}
+                        value={state.fields.deed_of_the_day} />
+                </Col>
 
                 <button className="button round bg-gold color-white margin-top-30" style={{ padding: "0 80px", marginBottom: 5 }}>{t("submit")}</button>
 

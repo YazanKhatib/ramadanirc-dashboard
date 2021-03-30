@@ -6,6 +6,7 @@ export interface tidbit {
     textEnglish: string;
     textFrench: string;
     active: boolean;
+    deed_of_the_day: string;
 }
 
 // tidbits state

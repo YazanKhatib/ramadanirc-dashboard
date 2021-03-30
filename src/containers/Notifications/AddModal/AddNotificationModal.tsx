@@ -153,7 +153,7 @@ export default () => {
                     </Col>
                     <Col md={12} className="add-brand">
                         <InputField
-                            type="datetime-local"
+                            type="date"
                             label={t("date")}
                             error={showErrors && !state.fields.date ? t("required_error") : ""}
                             onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
@@ -162,9 +162,9 @@ export default () => {
                                     year: "numeric",
                                     month: "2-digit",
                                     day: "2-digit",
-                                    hour: "2-digit",
-                                    minute: "2-digit",
-                                    second: "2-digit"
+                                    // hour: "2-digit",
+                                    // minute: "2-digit",
+                                    // second: "2-digit"
                                 }).replace(" ", "T") }))
                             }}
                             value={state.fields.date} />

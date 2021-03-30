@@ -148,6 +148,15 @@ export default () => {
                             }}
                             value={state.fields.location} />
                     </Col>
+                    <Col md={12}>
+                        <InputField
+                            type="password"
+                            label={t("password")}
+                            onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+                                dispatch(addUserSlice.actions.set({ password: e.target.value }))
+                            }}
+                            value={state.fields.password} />
+                    </Col>
                 </Row>
 
                 <button className="button round bg-gold color-white margin-top-30" style={{ padding: "0 80px", marginBottom: 5 }}>{t("submit")}</button>
