@@ -10,6 +10,8 @@ import './Table.css'
 import { SimpleCheckbox } from '../FormElements/FormElements'
 import { EllipsisLoader } from '../Loader/Loader';
 
+import {isSafari} from 'react-device-detect';
+
 interface DashboardTableProps {
     header: string[], // Table header data
     body: {
@@ -37,7 +39,7 @@ export const DashboardTable = (props: DashboardTableProps) => {
     }
 
     return (
-        <div className="dashboard-table">
+        <div className={ "dashboard-table" + ( isSafari ? " safari" : "" )}>
             <table>
                 <thead>
                     <tr>

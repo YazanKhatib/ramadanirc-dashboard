@@ -28,6 +28,14 @@
 .dashboard-table table tbody tr:hover td .show-on-hover { opacity: 1; visibility: visible; }
 .dashboard-table table tbody tr td .react-select { width: 180px; }
 
+.dashboard-table.safari table tbody tr::after { display: none; }
+.dashboard-table.safari table tbody tr { background: #FAFAFA; }
+.dark .dashboard-table.safari table tbody tr { background: #222730; }
+.dashboard-table.safari table tbody tr:hover,
+.dashboard-table.safari table tbody tr.active { background: #F5F5F5; }
+.dark .dashboard-table.safari table tbody tr:hover,
+.dark .dashboard-table.safari table tbody tr.active { background: #292f3a; }
+
 .dashboard-table table tbody tr td .show-on-hover i { margin: 0 5px; width: 30px; height: 30px; line-height: 32px; text-align: center; background: #FFF; border-radius: 3px; display: inline-block; transition: all .3s ease; }
 .dashboard-table table tbody tr td .show-on-hover i:hover { transform: scale(1.2); }
 .dark .dashboard-table table tbody tr td .show-on-hover i { background: #343b49; }
