@@ -9,6 +9,11 @@
     .side-nav ul li i { margin: 0; }
     .side-nav .active-box { display: none; }
 
+    .side-nav { background: #FFF; box-shadow: 0 -1px 5px rgb(0, 0, 0, .1); width: 100%; left: 0; bottom: 0; border-radius: 20px 20px 0 0; }
+    .side-nav ul li { width: 20%; padding: 0; }
+    .side-nav ul li a { color: #999; }
+    .side-nav ul li.active a { color: #75AECC; }
+
     /* Main side */
     .main-side { margin: 0; padding-bottom: 60px; border-radius: 0; }
     .main-side > * { padding: 10px 20px; }
