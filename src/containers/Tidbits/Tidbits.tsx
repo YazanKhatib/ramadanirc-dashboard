@@ -37,11 +37,11 @@ export default () => {
         
         dispatch( tidbitsSlice.actions.setIsFetching(true) )
 
-        ENDPOINTS.deed_of_the_day().get()
-        .then( (response: any) => {
+        // ENDPOINTS.deed_of_the_day().get()
+        // .then( (response: any) => {
 
-            // Set deed of the day
-            let deedOfTheDay = Number(response.data?.deedOfTheDay?.id)
+        //     // Set deed of the day
+        //     let deedOfTheDay = Number(response.data?.deedOfTheDay?.id)
 
             ENDPOINTS.tidbits().index()
             .then( (response: any) => {
@@ -59,14 +59,14 @@ export default () => {
                 })
     
                 dispatch( tidbitsSlice.actions.add(tidbits) )
-                setTimeout(() => {
-                    dispatch( tidbitsSlice.actions.setActiveDeed({ id: deedOfTheDay }) )
-                }, 50);
+                // setTimeout(() => {
+                //     dispatch( tidbitsSlice.actions.setActiveDeed({ id: deedOfTheDay }) )
+                // }, 50);
                 dispatch( tidbitsSlice.actions.setIsLoaded(true) )
                 dispatch( tidbitsSlice.actions.setIsFetching(false) )
             })
 
-        })
+        // })
 
     }
 
