@@ -64,8 +64,8 @@ export default () => {
         state.checklist.map( (item, index) => {
             data[item.id] = {
                 name: item.name,
-                icon: item.notSelectedIcon ? <img src={item.notSelectedIcon} style={{ width: 25, padding: 5, background: "#FAFAFA", borderRadius: 3 }} /> : "N/A",
-                selected_icon: item.selectedIcon ? <img src={item.selectedIcon} style={{ width: 25, padding: 5, background: "#FAFAFA", borderRadius: 3 }} /> : "N/A",
+                icon: item.notSelectedIcon ? <img src={item.notSelectedIcon} style={{ width: 25, background: "#FAFAFA", borderRadius: 3, transform: "scale(1.5)" }} /> : "N/A",
+                selected_icon: item.selectedIcon ? <img src={item.selectedIcon} style={{ width: 25, background: "#FAFAFA", borderRadius: 3, transform: "scale(1.5)" }} /> : "N/A",
                 fixed: <i className={ "icon-pin" + ( item.fixed ? "" : "-outline" ) } onClick={(e: React.MouseEvent<HTMLLIElement>) => toggleFixed(e, item.id, item.fixed) } />,
                 actions: <div className="show-on-hover">
                             <i className="icon-edit" onClick={(e: React.MouseEvent<HTMLLIElement>) => edit(e, item.id) } />
