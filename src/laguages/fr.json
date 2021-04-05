@@ -57,6 +57,22 @@
     "text_english": "Texte - anglais",
     "text_french": "Texte - français",
 
-    "date": "Date"
+    "date": "Date",
+
+    "add_to_notifications": "ajouter aux notifications",
+    "title": "Titre",
+    "title_english": "Titre - anglais",
+    "body": "Texte du message",
+    "body_english": "Texte du message - anglais",
+    "title_french": "Titre - français",
+    "body_french": "Texte du message - français",
+    "status": "Statut",
+    "add_notification": "Ajouter une notification",
+    "edit_notification": "Modifier la notification",
+
+    "icon": "Icône",
+    "selected_icon": "Icône sélectionnée",
+    "icon_url": "URL de l'icône",
+    "selected_icon_url": "URL de l'icône sélectionnée"
 
 }
