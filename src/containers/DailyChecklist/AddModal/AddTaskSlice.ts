@@ -3,6 +3,7 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 // Task state
 export interface task {
     name?: string;
+    nameFrench?: string;
     notSelectedIcon?: string;
     selectedIcon?: string;
 }

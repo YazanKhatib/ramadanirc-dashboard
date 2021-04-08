@@ -59,7 +59,7 @@ class API {
      * @param {}
      */
     auth(): {
-        login(query: {email: string, password: string}, name?: string): any;
+        login(query: {email: string, password: string, date: string}, name?: string): any;
         reset_password(query: {newPassword: string}, token: string, name?: string): any;
     } {
         var endpoints:any = {}
@@ -117,8 +117,8 @@ class API {
      */
     checklist(): {
         index( name?: string ): any;
-        add( query: { name?: string; fixed?: boolean; }, name?: string ): any;
-        update( query: { id?: number; name?: string; fixed?: boolean; }, name?: string ): any;
+        add( query: { name?: string; nameFrench?: string; fixed?: boolean; }, name?: string ): any;
+        update( query: { id?: number; name?: string; nameFrench?: string; fixed?: boolean; }, name?: string ): any;
         delete( id: number, name?: string ): any;
     } {
         var endpoints:any = {}

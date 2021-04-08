@@ -45,6 +45,7 @@ export default () => {
                 checklist.push({
                     id: Number(item.id),
                     name: String(item.name ? item.name : "N/A"),
+                    nameFrench: String(item.nameFrench ? item.nameFrench : "N/A"),
                     fixed: Boolean(item.fixed),
                     notSelectedIcon: item.notSelectedIcon,
                     selectedIcon: item.selectedIcon
@@ -64,6 +65,7 @@ export default () => {
         state.checklist.map( (item, index) => {
             data[item.id] = {
                 name: item.name,
+                nameFrench: item.nameFrench,
                 icon: item.notSelectedIcon ? <img src={item.notSelectedIcon} style={{ width: 25, background: "#FAFAFA", borderRadius: 3, transform: "scale(1.5)" }} /> : "N/A",
                 selected_icon: item.selectedIcon ? <img src={item.selectedIcon} style={{ width: 25, background: "#FAFAFA", borderRadius: 3, transform: "scale(1.5)" }} /> : "N/A",
                 fixed: <i className={ "icon-pin" + ( item.fixed ? "" : "-outline" ) } onClick={(e: React.MouseEvent<HTMLLIElement>) => toggleFixed(e, item.id, item.fixed) } />,
@@ -85,7 +87,10 @@ export default () => {
         let taskToEdit = state.checklist.find(task => task.id === id)
         if(taskToEdit) {
             dispatch( addTaskSlice.actions.set({
-                name: taskToEdit.name
+                name: taskToEdit.name,
+                nameFrench: taskToEdit.nameFrench,
+                selectedIcon: taskToEdit.selectedIcon,
+                notSelectedIcon: taskToEdit.notSelectedIcon
             }) )
             dispatch( addTaskSlice.actions.setEditId(taskToEdit.id) )
             dispatch( addTaskSlice.actions.setIsOpen(true) )
@@ -150,7 +155,7 @@ export default () => {
                     />
                 
                 <DashboardTable
-                    header={[ t("name"), t("icon"), t("selected_icon"), t("fixed"), "" ]}
+                    header={[ t("name"), t("name_french"), t("icon"), t("selected_icon"), t("fixed"), "" ]}
                     body={generateData()}
                     onSelect={toggleSelectedId}
                     hasMore={state.hasMore}

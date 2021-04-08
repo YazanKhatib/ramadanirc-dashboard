@@ -4,6 +4,7 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 export interface task {
     id: number;
     name: string;
+    nameFrench: string;
     fixed: boolean;
     notSelectedIcon: string;
     selectedIcon: string;

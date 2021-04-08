@@ -59,7 +59,7 @@ export default function () {
 
         dispatch( loginSlice.actions.load() )
 
-        ENDPOINTS.auth().login({ email: username.toLowerCase(), password })
+        ENDPOINTS.auth().login({ email: username.toLowerCase(), password, date: new Date().toISOString() })
         .then((response: any) => {
             
             if(response.data?.accessToken && response.data?.user?.admin) {

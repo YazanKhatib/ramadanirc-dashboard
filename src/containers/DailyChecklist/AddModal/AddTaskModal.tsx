@@ -45,7 +45,7 @@ export default () => {
 
         e.preventDefault()
 
-        if( !state.fields.name ) {
+        if( !state.fields.name || !state.fields.nameFrench ) {
             setShowErrors(true)
             return
         }
@@ -105,6 +105,16 @@ export default () => {
                                 dispatch(addTaskSlice.actions.set({ name: e.target.value }))
                             }}
                             value={state.fields.name} />
+                    </Col>
+                    <Col md={12}>
+                        <InputField
+                            rows={4}
+                            label={t("name_french")}
+                            error={showErrors && !state.fields.nameFrench ? t("required_error") : ""}
+                            onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+                                dispatch(addTaskSlice.actions.set({ nameFrench: e.target.value }))
+                            }}
+                            value={state.fields.nameFrench} />
                     </Col>
                     <Col md={12}>
                         <InputField
