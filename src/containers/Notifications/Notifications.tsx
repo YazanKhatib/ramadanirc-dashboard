@@ -64,12 +64,14 @@ export default () => {
     const generateData: () => tableDataType = () => {
         let data: tableDataType = {}
         state.notifications.map( (item, index) => {
+            let date = new Date(item.date)
+            date.setHours(13, 0, 0, 0)
             data[item.id] = {
                 title: item.titleEnglish,
                 body: item.bodyEnglish,
                 title_french: item.titleFrench,
                 body_french: item.bodyFrench,
-                date: new Date(item.date).toLocaleString("sv-SE", {
+                date: date.toLocaleString("sv-SE", {
                     year: "numeric",
                     month: "2-digit",
                     day: "2-digit",
@@ -94,12 +96,14 @@ export default () => {
         e.stopPropagation()
         let notificationToEdit = state.notifications.find(notification => notification.id === id)
         if(notificationToEdit) {
+            let date = new Date(notificationToEdit.date)
+            date.setHours(13, 0, 0, 0)
             dispatch( addNotificationSlice.actions.set({
                 titleEnglish: notificationToEdit.titleEnglish,
                 titleFrench: notificationToEdit.titleFrench,
                 bodyEnglish: notificationToEdit.bodyEnglish,
                 bodyFrench: notificationToEdit.bodyFrench,
-                date: new Date(notificationToEdit.date).toLocaleString("sv-SE", {
+                date: date.toLocaleString("sv-SE", {
                     year: "numeric",
                     month: "2-digit",
                     day: "2-digit",

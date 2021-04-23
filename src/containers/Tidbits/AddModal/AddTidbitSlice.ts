@@ -14,9 +14,12 @@ export interface addTidbitState {
     isOpen: boolean
 }
 
+let date = new Date()
+date.setHours(13, 0, 0, 0)
+
 const initial: addTidbitState = {
     fields: {
-        deed_of_the_day: new Date().toLocaleString("sv-SE", {
+        deed_of_the_day: date.toLocaleString("sv-SE", {
             year: "numeric",
             month: "2-digit",
             day: "2-digit"

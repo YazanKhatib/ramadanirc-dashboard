@@ -63,8 +63,9 @@ export default () => {
             ...state.fields
         })
         .then((response: any) => {
-
-            ENDPOINTS.deed_of_the_day().set({ id: response?.data?.tidbit?.id, value: formatDate(new Date(state.fields.deed_of_the_day || "")) })
+            let date = new Date(state.fields.deed_of_the_day || "")
+            date.setHours(13, 0, 0, 0)
+            ENDPOINTS.deed_of_the_day().set({ id: response?.data?.tidbit?.id, value: formatDate(date) })
             .then((deed_response: any) => {
                 dispatch(addTidbitSlice.actions.setIsLoading(false))
     
@@ -82,7 +83,7 @@ export default () => {
                         id: response?.data?.tidbit?.id,
                         textEnglish: response?.data?.tidbit?.textEnglish,
                         textFrench: response?.data?.tidbit?.textFrench,
-                        deed_of_the_day: new Date(state.fields.deed_of_the_day || "").toISOString()
+                        deed_of_the_day: date.toISOString()
                     }))
                 else
                     dispatch(tidbitsSlice.actions.add([{
@@ -90,7 +91,7 @@ export default () => {
                         id: response?.data?.tidbit?.id,
                         textEnglish: response?.data?.tidbit?.textEnglish,
                         textFrench: response?.data?.tidbit?.textFrench,
-                        deed_of_the_day: new Date(state.fields.deed_of_the_day || "").toISOString()
+                        deed_of_the_day: date.toISOString()
                     }]))
             })
             
@@ -141,6 +142,7 @@ export default () => {
                         label={t("deed_of_the_day")}
                         onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
                             let date = new Date(e.target.value)
+                            date.setHours(13, 0, 0, 0)
                             dispatch(addTidbitSlice.actions.set({ deed_of_the_day: date.toLocaleString("sv-SE", {
                                 year: "numeric",
                                 month: "2-digit",

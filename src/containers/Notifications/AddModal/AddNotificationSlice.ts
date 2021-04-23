@@ -17,7 +17,7 @@ export interface addNotificationState {
 }
 
 let now = new Date()
-now.setSeconds(0, 0)
+now.setHours(13, 0, 0, 0)
 const initial: addNotificationState = {
     fields: {
         date: now.toLocaleString("sv-SE", {
