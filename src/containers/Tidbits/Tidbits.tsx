@@ -74,10 +74,12 @@ export default () => {
     const generateData: () => tableDataType = () => {
         let data: tableDataType = {}
         state.tidbits.map( (item, index) => {
+            let date = new Date(item.deed_of_the_day)
+            date.setHours(13, 0, 0, 0)
             data[item.id] = {
                 textEnglish: item.textEnglish,
                 textFrench: item.textFrench,
-                deed_of_the_day: item.deed_of_the_day === "N/A" ? item.deed_of_the_day : new Date(item.deed_of_the_day).toLocaleString("sv-SE", {
+                deed_of_the_day: item.deed_of_the_day === "N/A" ? item.deed_of_the_day : date.toLocaleString("sv-SE", {
                     year: "numeric",
                     month: "2-digit",
                     day: "2-digit",
@@ -103,10 +105,12 @@ export default () => {
         e.stopPropagation()
         let tidbitToEdit = state.tidbits.find(tidbit => tidbit.id === id)
         if(tidbitToEdit) {
+            let date = new Date(tidbitToEdit.deed_of_the_day)
+            date.setHours(13, 0, 0, 0)
             dispatch( addTidbitSlice.actions.set({
                 textEnglish: tidbitToEdit.textEnglish,
                 textFrench: tidbitToEdit.textFrench,
-                deed_of_the_day: new Date(tidbitToEdit.deed_of_the_day).toLocaleString("sv-SE", {
+                deed_of_the_day: date.toLocaleString("sv-SE", {
                     year: "numeric",
                     month: "2-digit",
                     day: "2-digit"
