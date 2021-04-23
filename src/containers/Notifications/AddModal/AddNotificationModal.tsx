@@ -154,7 +154,7 @@ export default () => {
                     <Col md={12} className="add-brand">
                         <InputField
                             type="date"
-                            label={t("date") + 1}
+                            label={t("date")}
                             error={showErrors && !state.fields.date ? t("required_error") : ""}
                             onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
                                 let date = new Date(e.target.value)
